@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sudoku Solver | Nick Earle</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="A Couple Sudoku Solvers">
+    <meta name="generator" content="Hugo 0.89.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+<link rel="shortcut icon" href="/images/GoingSkiing.jpg" type="image/x-icon" />
+
+
+    
+
+    
+    
+    <meta property="og:title" content="Sudoku Solver" />
+<meta property="og:description" content="A Couple Sudoku Solvers" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ncearle.com/projects/4sudoku/" /><meta property="article:section" content="Projects" />
+
+
+
+<meta itemprop="name" content="Sudoku Solver">
+<meta itemprop="description" content="A Couple Sudoku Solvers">
+
+<meta itemprop="wordCount" content="748">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sudoku Solver"/>
+<meta name="twitter:description" content="A Couple Sudoku Solvers"/>
+
+	
+  </head>
+
+  <body class="ma0 athelas moon-gray bg-dark-gray">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-navy">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nick Earle
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/photos/" title="Photos page">
+              Photos
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/projects/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/Resume_NicholasEarle.pdf" title="Resume">
+              Resume
+            </a>
+        </li>
+        </ul>
+      
+      
+
+
+<a href="mailto:ncearle@gmail.com" target="_blank" class="link-transition email link dib z-999 pt3 pt0-l mr1" title="email link" rel="noopener" aria-label="send me an email——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/ncearle10/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/Ncearle" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw9 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROJECTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">Sudoku Solver</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f5 nested-links nested-img moon-gray pr4-l w-two-thirds-l"><p>This is a personal project of mine. I&rsquo;ve written a couple of Sudoku solvers in Python and come across some pretty cool ones online and one video of a solver that solves Sudokus via camera on the screen in real-time. I thought this would be a good test and I am now trying to figure it out using OpenCV and neural networks. I&rsquo;ll update my progress here. Read on for a bit more of an explanation and history.</p>
+<p>I&rsquo;ve always loved sitting down and solving Sudokus. There&rsquo;s something pretty satisfying about watching the empty squares disappear as you make progress, ideally without too many mistakes. As I was first starting to learn to code my dad kept suggesting I should write an algorithm to solve Sudokus, but it wasn&rsquo;t until more recently that I took his advice. It turned out to be a good way to learn about some useful coding algorithms and has now turned into a slightly bigger project.</p>
+<p>Researching the problem I learned about the backtracking algorithm. There are many Sudoku solvers on the internet that use variations of it, so I decided to write my own. It is a simple recursion method that is quite a bit faster than the naive solution of just trying every combination of numbers until to find one that works. My method starts in the first empty square along the first row and finds the first number that works. It then go to the next empty cells—working across rows before moving down—and finds the first number that works. If there are no numbers that satisfy the constraints on that square it backtracks to the previous square and increments to the next valid number. This is repeated until we solve the puzzle. Typically, it finishes in a matter of seconds. The solution time, however, is not related to puzzle difficulty, but to how many empty cells we begin with. I was pleased with this solution that worked and solved all solvable Sudokus but not exactly satisfied as it is very much a solution that you can only run on a computer, humans don&rsquo;t solve Sudokus by backtracking.</p>
+<p>Next I set about writing a solver that solved a Sudoku how I personally would solve one. That is, first, cycle through all the empty squares and figure out all the potential numbers. From here, if there are any cells with just a single potential number we can fill that square, then update the rest. For easier puzzles this can be a sufficient algorithm to solve the whole thing, but we need to be a bit more sophisticated for the harder ones. The next step to add was eliminating any paired potential squares from others in its peers. That is, say two squares on the same row each have two potential numbers, 3 and 4, we can now eliminate 3 and 4 as potential numbers from all other squares on that row. If this leaves us with any cells to be filled we can again propagate the new constraint through the puzzle. This addition usually fills in a few more squares, but is not enough to finish most hard Sudokus. The final step in the algorithm is to make a guess. We guess at a square with the fewest potential numbers and propagate the new constraint through the puzzle. If we get stuck again must make another guess. We will now either solve the puzzle or find a square with no potential numbers, in which case we backtrack to the previous guess and try again. This is a much better algorithm in my view as it is relatable, and usually faster for hard puzzles with few clues.</p>
+<p>Again, browsing the internet for other solvers I came across a solver by <a href="https://norvig.com/sudoku.html">Peter Norvig</a> which is much more elegant and much faster than mine. I&rsquo;ve adopted much of what he wrote for my next test which is a solver that I only saw on a short video. This Sudoku solver worked in real-time and solved a Sudoku and displayed the solution as it was shown on the camera of a computer. He created this program using OpenCV and training a neural network to recognize the puzzle, so I thought it would be a good project to try it myself. I am now learning OpenCV and hoping to train a neural network along with the help of Novrig&rsquo;s solver to create my own live solver. If you&rsquo;re curious you can follow my slow progress on Github.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-navy bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline moon-gray dn dib-ns pv2 ph3" href="http://ncearle.com/" >
+    &copy;  Nick Earle 2021 
+  </a>
+    <div>
+
+
+<a href="mailto:ncearle@gmail.com" target="_blank" class="link-transition email link dib z-999 pt3 pt0-l mr1" title="email link" rel="noopener" aria-label="send me an email——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/ncearle10/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/Ncearle" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24">
+  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+</svg>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+    
+  </body>
+</html>

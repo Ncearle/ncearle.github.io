@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nick Earle</title>
+    <link>http://ncearle.com/</link>
+    <description>Recent content on Nick Earle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-ca</language>
+    <lastBuildDate>Thu, 04 Nov 2021 09:53:07 -0700</lastBuildDate><atom:link href="http://ncearle.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EDAMAniso3D</title>
+      <link>http://ncearle.com/projects/1edamaniso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ncearle.com/projects/1edamaniso/</guid>
+      <description>An Automatic Anisotropic Mesh Generator for CFD</description>
+    </item>
+    
+    <item>
+      <title>Marching from Complex Corners</title>
+      <link>http://ncearle.com/projects/2complexcorners/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ncearle.com/projects/2complexcorners/</guid>
+      <description>An Advancing-Layer Method for Handling Complex Corners</description>
+    </item>
+    
+    <item>
+      <title>Moving Lid CFD Solver</title>
+      <link>http://ncearle.com/projects/3movinglidbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ncearle.com/projects/3movinglidbox/</guid>
+      <description>A solver for the classic CFD problem of a box with a moving lid</description>
+    </item>
+    
+    <item>
+      <title>Sudoku Solver</title>
+      <link>http://ncearle.com/projects/4sudoku/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ncearle.com/projects/4sudoku/</guid>
+      <description>Some Sudoku Solvers</description>
+    </item>
+    
+  </channel>
+</rss>
